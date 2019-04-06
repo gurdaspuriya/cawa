@@ -80,9 +80,15 @@ For multilabel classification, the metrics of interest are the fields 13, 14 and
 For credit attribution, the metrics of interest are the fields 23 and 24.
 
 The best hyperparameter values for different datasets are:
+
 Dataset    α   β
+
 Movies    0.2 0.1
+
 Ohsumed   0.1 0.1
+
 TMC2007   0.1 0.3
+
 Patents   0.5 0.3
+
 Delicious 0.1 0.2
