@@ -887,7 +887,7 @@ for epoch in range(num_epoch):
         ids, batch_words, batch_projection_matrix, batch_num_words, batch_num_sentences, batch_labels = batch_loader_train.get_next_batch();
         loss_val = train(batch_words, batch_projection_matrix, batch_num_words, batch_num_sentences, batch_labels);
         loss_progression.append(loss_val);
-    if epoch%check_flag == 0:
+    if (epoch+1)%check_flag == 0:
         test_stats = test_stats_class();
         valid_stats = valid_stats_seg();
         seg_stats = segment_stats_seg();
