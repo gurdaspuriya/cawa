@@ -1,48 +1,51 @@
 # cawa
 Credit Attribution with Attention
+
 The folder Code contains the python code for Credit Attribution With Attention (CAWA) and other helper scripts for evaluation. The code uses Pytorch framework.
 The folder Data contains the preprocessed data for the five text datasets: Movies, Ohsumed, TMC2007, Patents and Delicious.
 
 usage: python Code/cawa.py <arguments>
 
 Following arguments can be used
-  -d DATAPATH, --datapath DATAPATH
-                        Path to the folder containing data files.
-  -c CLASSES, --classes CLASSES
-                        Number of classes.
-  -s SEED, --seed SEED  Seed for random initializations.
-  -a ALPHA, --alpha ALPHA
-                        Alpha (Default 0.2).
-  -k KERNEL_SIZE, --kernel_size KERNEL_SIZE
-                        Kernel size for smoothing
-  -v STANDARD_DEVIATION, --standard_deviation STANDARD_DEVIATION
-                        Standard deviation for the gaussian kernel, negative
-                        input means simple averaging
-  -l LEARNING, --learning LEARNING
-                        Learning rate (Default 0.001).
-  -y NODES, --nodes NODES
-                        Number of nodes in neural network (Default 256).
-  -e EPOCH, --epoch EPOCH
-                        Num epochs (Default 100).
-  -b BATCH, --batch BATCH
-                        Batch size (Default 256).
-  -p DROPOUT, --dropout DROPOUT
-                        Dropout probability (Default 0.5).
-  -u UNUSED, --unused UNUSED
-                        Use null class (Default 0).
-  -m CLIPPING, --clipping CLIPPING
-                        Clipping value (Default 0.25).
-  -f CHECK, --check CHECK
-                        Check flag (Default 10), write results to the file after every <these> epochs.
-  -q SCRIPTS, --scripts SCRIPTS
-                        Path to the folder containing python scripts.
-  -r RESULTS, --results RESULTS
-                        Path to the results output file.
+
+  -d DATAPATH, --datapath DATAPATH: Path to the folder containing data files.
+                        
+  -c CLASSES, --classes CLASSES: Number of classes.
+                        
+  -s SEED, --seed SEED: Seed for random initializations.
+  
+  -a ALPHA, --alpha ALPHA: Alpha (Default 0.2).
+  
+  -k KERNEL_SIZE, --kernel_size KERNEL_SIZE: Kernel size for smoothing
+  
+  -v STANDARD_DEVIATION, --standard_deviation STANDARD_DEVIATION: Standard deviation for the gaussian kernel, negative input means simple averaging
+  
+  -l LEARNING, --learning LEARNING: Learning rate (Default 0.001).
+  
+  -y NODES, --nodes NODES: Number of nodes in neural network (Default 256).
+  
+  -e EPOCH, --epoch EPOCH: Num epochs (Default 100).
+  
+  -b BATCH, --batch BATCH: Batch size (Default 256).
+  
+  -p DROPOUT, --dropout DROPOUT: Dropout probability (Default 0.5).
+  
+  -u UNUSED, --unused UNUSED: Use null class (Default 0).
+  
+  -m CLIPPING, --clipping CLIPPING: Clipping value (Default 0.25).
+  
+  -f CHECK, --check CHECK: Check flag (Default 10), write results to the file after every <these> epochs.
+  
+  -q SCRIPTS, --scripts SCRIPTS: Path to the folder containing python scripts.
+  
+  -r RESULTS, --results RESULTS: Path to the results output file.
 
 Example usage for the Movies dataset:
+
 python Code/cawa.py --datapath Data/cmumovies --classes 6 --seed 0 --alpha 0.2 --kernel_size 3 --standard_deviation -1 --learning 0.001 --nodes 256 --epoch 100 --batch 256 --dropout 0.5 --unused 0 --clipping 0.25 --check 10 --scripts Code/scripts --results results.txt
 
 The output will be as follows:
+
 After every check_flag=10 epochs, the model will write the evaluation results for the credit attribution as well as multilabel classification for different values of beta to the results file. The evaluation will be performed for both the test and validation datasets.
 
 Each line in the results file will have comma separated 24 fields as follows:
